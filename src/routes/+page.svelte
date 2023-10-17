@@ -1,7 +1,51 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+<script lang="ts">
+	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	import { RadioGroup, RadioItem } from '@skeletonlabs/skeleton';
+	import { RangeSlider } from '@skeletonlabs/skeleton';
+
+	let timeHorizontal = 'months';
+	let value = 15;
+	let max = 25;
+</script>
+
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-10 text-center flex flex-col items-center">
 		<h2 class="h2">Test.</h2>
+		<button type="button" class="btn variant-filled-surface"><a href="/About/">About screen</a></button>
+		
+		<Accordion autocollapse class="card p-4 text-token">
+			<AccordionItem open>
+				<svelte:fragment slot="lead">(icon)</svelte:fragment>
+				<svelte:fragment slot="summary">(summary)</svelte:fragment>
+				<svelte:fragment slot="content">(content)</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="lead">(icon)</svelte:fragment>
+				<svelte:fragment slot="summary">(summary)</svelte:fragment>
+				<svelte:fragment slot="content">(content)</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="lead">(icon)</svelte:fragment>
+				<svelte:fragment slot="summary">(summary)</svelte:fragment>
+				<svelte:fragment slot="content">(content)</svelte:fragment>
+			</AccordionItem>
+		</Accordion>
+
+		<RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary">
+			<RadioItem bind:group={timeHorizontal} name="time" value="months">Months</RadioItem>
+			<RadioItem bind:group={timeHorizontal} name="time" value="years">Years</RadioItem>
+		</RadioGroup>
+
+
+		<RangeSlider name="range-slider" bind:value={value} max={25} step={1} ticked>
+			<div class="flex justify-between items-center">
+				<div class="font-bold">Label</div>
+				<div class="text-xs">{value} / {max}</div>
+			</div>
+		</RangeSlider>
+
+
 		<!-- Animated Logo -->
 		<figure>
 			<section class="img-bg" />
