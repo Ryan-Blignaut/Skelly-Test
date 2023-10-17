@@ -21,8 +21,6 @@
 
 	// export let data;
 	// console.log(data);
-	
-
 </script>
 
 <Table source={tableSimple} />
