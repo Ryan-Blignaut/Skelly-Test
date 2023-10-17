@@ -19,8 +19,8 @@
 		foot: ['Total', '', '<code class="code">5</code>']
 	};
 
-	export let data;
-	console.log(data);
+	// export let data;
+	// console.log(data);
 	
 
 </script>
