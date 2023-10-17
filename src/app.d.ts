@@ -9,7 +9,7 @@
 // }
 
 declare namespace App {
-	interface Locals { }
+	interface Locals {}
 
 	interface Platform {
 		env: {
@@ -20,10 +20,10 @@ declare namespace App {
 		context: {
 			waitUntil(promise: Promise<any>): void;
 		};
-		caches: CacheStorage & { default: Cache }
+		caches: CacheStorage & { default: Cache };
 	}
 
-	interface Session { }
+	interface Session {}
 
-	interface Stuff { }
+	interface Stuff {}
 }
