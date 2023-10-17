@@ -12,11 +12,6 @@ declare namespace App {
 	interface Locals {}
 
 	interface Platform {
-		env: {
-			COUNTER: DurableObjectNamespace;
-			TURSO: DurableObjectNamespace;
-			TURSO: KVNamespace;
-		};
 		context: {
 			waitUntil(promise: Promise<any>): void;
 		};

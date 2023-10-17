@@ -1,9 +1,9 @@
 import type {PageServerLoad} from './$types';
-import {SECRET_URI} from '$env/static/private';
+import {SECRET_TURSO_DATABASE_URL} from '$env/static/private';
 
 export const load = (async () => {
         return {
-            "wow wee ": SECRET_URI, "Value": "Hello World!"
+            "wow wee ": SECRET_TURSO_DATABASE_URL, "Value": "Hello World!"
         }
     }
 ) satisfies PageServerLoad;
