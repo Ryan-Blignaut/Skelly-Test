@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Table, tableMapperValues, type TableSource } from '@skeletonlabs/skeleton';
-
 	const sourceData = [
 		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
 		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -19,6 +18,11 @@
 		// Optional: A list of footer labels.
 		foot: ['Total', '', '<code class="code">5</code>']
 	};
+
+	export let data;
+	console.log(data);
+	
+
 </script>
 
 <Table source={tableSimple} />
