@@ -3,3 +3,5 @@
 
 	export let data: PageData;
 </script>
+
+<p>Test {JSON.stringify(data)}</p>
