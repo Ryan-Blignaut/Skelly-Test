@@ -1,10 +1,8 @@
 import type { PageServerLoad } from './$types';
 
-export const load = (async (a: any, b: any, c: any) => {
+export const load = (async ({ request, platform  }: any) => {
     return {
-        "status": 200,
-        "a": a,
-        "b": b,
-        "c": c
+        "status": request,
+        "platform": platform
     };
 }) satisfies PageServerLoad;
