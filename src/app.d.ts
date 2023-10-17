@@ -14,6 +14,8 @@ declare namespace App {
 	interface Platform {
 		env: {
 			COUNTER: DurableObjectNamespace;
+			TURSO: DurableObjectNamespace;
+			TURSO: KVNamespace;
 		};
 		context: {
 			waitUntil(promise: Promise<any>): void;
