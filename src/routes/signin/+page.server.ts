@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { db } from '$lib/server/database';
+import { db } from '../../../functions/database';
 
 export const load: PageServerLoad = async ({ request, platform }) => {
 	const { rows } = await db.execute(`
