@@ -5,3 +5,5 @@ export const db = createClient({
 	authToken: process.env.SECRET_TURSO_AUTH_TOKEN
 });
 export const db1 = drizzle(db);
+
+
