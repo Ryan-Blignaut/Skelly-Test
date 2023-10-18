@@ -1,16 +1,8 @@
 import type { PageServerLoad } from './$types';
-import { db } from '../../../functions/database';
+import { db } from '$lib/server/database';
 
-export const load: PageServerLoad = async ({ request, platform }) => {
-	const { rows } = await db.execute(`
-      SELECT count(*) AS num_tables FROM sqlite_master
-      WHERE type ='table' AND name NOT IN ('libsql_wasm_func_table','_litestream_seq','_litestream_lock')
-    `);
-
-	const numTables = rows[0].num_tables;
-
-	console.log('signin/+page.server.ts: load()');
-	console.log('locals:', request);
-	console.log('locals:', platform);
-	return numTables;
+export const load: PageServerLoad = async () => {
+	const resultSet = await db.execute('Select * from fruits');
+	console.log('Fruits: ', resultSet.rows);
+	return { rows: resultSet.rows };
 };
