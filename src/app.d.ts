@@ -9,16 +9,19 @@
 // }
 
 declare namespace App {
-	interface Locals {}
+  interface Locals {
+  }
 
-	interface Platform {
-		context: {
-			waitUntil(promise: Promise<any>): void;
-		};
-		caches: CacheStorage & { default: Cache };
-	}
+  interface Platform {
+    context: {
+      waitUntil(promise: Promise<never>): void;
+    };
+    caches: CacheStorage & { default: Cache };
+  }
 
-	interface Session {}
+  interface Session {
+  }
 
-	interface Stuff {}
+  interface Stuff {
+  }
 }
