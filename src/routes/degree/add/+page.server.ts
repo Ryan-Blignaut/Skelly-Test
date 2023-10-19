@@ -6,6 +6,8 @@ import { data } from 'autoprefixer';
 
 export const actions = {
 	default: async (event: RequestEvent) => {
+		try {
+
 		const formData: FormData = await event.request.formData();
 
 		const url = 'https://api.cloudinary.com/v1_1/dkfshiazu/image/upload';
@@ -91,5 +93,11 @@ export const actions = {
        VALUES ('${title}', '${description}', '${a}')`
 		);
 		return { success: resultSet.rowsAffected === 1 };
+		}
+		catch (error) {
+			return { error: error };
+
+		}
+
 	}
 } satisfies Actions;
