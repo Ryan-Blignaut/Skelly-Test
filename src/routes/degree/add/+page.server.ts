@@ -80,13 +80,15 @@ export const actions = {
 		// const f = formData.get('file') as File;
 		const title = formData.get('title');
 		const description = formData.get('description');
+
+		const a = response.url??"non";
 		// const requirements = formData.get('requirements');
 		// TODO: fix this -??
 		// const fileText = await f.text();
 		// const fileBase64 = Buffer.from(fileText, 'binary').toString('base64');
 		const resultSet = await db.execute(
 			`INSERT INTO degree (title, description, requirements)
-       VALUES ('${title}', '${description}', '${response.url}')`
+       VALUES ('${title}', '${description}', '${a}')`
 		);
 		return { success: resultSet.rowsAffected === 1 };
 	}
