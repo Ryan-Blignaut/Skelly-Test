@@ -8,8 +8,11 @@
       let file = e.target.uploadFile.files[0]
     })
   */
+  import type { PageData } from "./$types";
 
+  export let data: PageData;
 </script>
+<p>This is the data we got {JSON.stringify(data)}</p>
 
 <form method="POST" enctype="multipart/form-data">
   <div class="card p-4 w-full text-token space-y-4">

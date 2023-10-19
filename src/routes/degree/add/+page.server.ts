@@ -1,6 +1,7 @@
 import type { Actions } from './$types';
 import type { RequestEvent } from '@sveltejs/kit';
 import { db } from '$lib/server/database';
+import { data } from 'autoprefixer';
 // import { env } from '$env/dynamic/private';
 
 export const actions = {
@@ -15,11 +16,11 @@ export const actions = {
 		// const file = formData.get('file') as File;
 		// const fileBase64 = Buffer.from(await file.text(), 'binary').toString('base64');
 		uploadFormData.append('file', formData.get('file') as File);
-		console.log("start");
+		console.log('start');
 		const response = await fetch(url, {
 			method: 'POST',
 			body: uploadFormData
-		});
+		}).then((d) => d.json());
 		console.log(response);
 
 		/*const uploadFormData = new FormData();
@@ -78,16 +79,17 @@ export const actions = {
 		console.log('Hello from add degree');
 
 		// const f = formData.get('file') as File;
-		const title = formData.get('title');
-		const description = formData.get('description');
-		const requirements = formData.get('requirements');
+		/*		const title = formData.get('title');
+        const description = formData.get('description');
+        const requirements = formData.get('requirements');*/
 		// TODO: fix this -??
 		// const fileText = await f.text();
 		// const fileBase64 = Buffer.from(fileText, 'binary').toString('base64');
-		const resultSet = await db.execute(
-			`INSERT INTO degree (title, description, requirements, image)
+		/*const resultSet = await db.execute(
+      `INSERT INTO degree (title, description, requirements, image)
        VALUES ('${title}', '${description}', '${requirements}', '')`
-		);
-		return { success: resultSet.rowsAffected === 1 };
+    );
+    return { success: resultSet.rowsAffected === 1 };*/
+		return { success: response };
 	}
 } satisfies Actions;
