@@ -21,7 +21,6 @@ export const actions = {
 			method: 'POST',
 			body: uploadFormData
 		}).then((d) => d.json());
-		console.log(response);
 
 		/*const uploadFormData = new FormData();
     uploadFormData.append('upload_preset', 'xtglb5ig');
@@ -79,17 +78,16 @@ export const actions = {
 		console.log('Hello from add degree');
 
 		// const f = formData.get('file') as File;
-		/*		const title = formData.get('title');
-        const description = formData.get('description');
-        const requirements = formData.get('requirements');*/
+		const title = formData.get('title');
+		const description = formData.get('description');
+		// const requirements = formData.get('requirements');
 		// TODO: fix this -??
 		// const fileText = await f.text();
 		// const fileBase64 = Buffer.from(fileText, 'binary').toString('base64');
-		/*const resultSet = await db.execute(
-      `INSERT INTO degree (title, description, requirements, image)
-       VALUES ('${title}', '${description}', '${requirements}', '')`
-    );
-    return { success: resultSet.rowsAffected === 1 };*/
-		return { success: response };
+		const resultSet = await db.execute(
+			`INSERT INTO degree (title, description, requirements)
+       VALUES ('${title}', '${description}', '${response.url}')`
+		);
+		return { success: resultSet.rowsAffected === 1 };
 	}
 } satisfies Actions;
